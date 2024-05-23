@@ -19,9 +19,6 @@ export async function fetchRevenue() {
   noStore();
 
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     return data.rows;

@@ -161,6 +161,7 @@ async function seedRevenue(client) {
 }
 
 async function main() {
+  const connectionString = process.env.VERCEL_PG_CONNECTION_STRING;
   const client = await db.connect();
 
   await seedUsers(client);
