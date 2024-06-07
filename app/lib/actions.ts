@@ -45,7 +45,6 @@ export async function updateInvoice(id: string, formData: FormData) {
   });
 
   const ammounInCents = amount * 100;
-
   await sql`
         UPDATE invoices
         SET customer_id = ${customerId}, amount = ${ammounInCents}, status = ${status}
@@ -55,4 +54,13 @@ export async function updateInvoice(id: string, formData: FormData) {
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 
+}
+
+export async function deleteInvoice(id: string) {
+    await sql`
+        DELETE FROM invoices
+        WHERE id = ${id}
+    `;
+
+    revalidatePath('/dashboard/invoices');
 }
