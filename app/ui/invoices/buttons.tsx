@@ -14,9 +14,10 @@ export function CreateInvoice() {
 }
 
 export function UpdateInvoice({ id }: { id: string }) {
+  const href = `/dashboard/invoices/${id}/edit`;
   return (
     <Link
-      href="/dashboard/invoices"
+      href={href}
       className="rounded-md border p-2 hover:bg-gray-100"
     >
       <PencilIcon className="w-5" />
