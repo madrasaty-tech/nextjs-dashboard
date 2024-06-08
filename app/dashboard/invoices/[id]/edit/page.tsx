@@ -12,9 +12,9 @@ export default async function Page({ params }: { params: { id: string } }) {
     fetchCustomers(),
   ]);
 
-  const session = await auth()
-  const user = session?.user
-  console.log(user)
+  const session = await auth();
+  const user = session?.user;
+  console.log(user);
 
   if (!invoice) {
     notFound();
@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <h1 className='' >{user?.email}</h1>
+      <h1>{user?.email}</h1>
 
       <Form invoice={invoice} customers={customers} />
     </main>
