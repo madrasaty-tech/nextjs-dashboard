@@ -126,7 +126,7 @@ export async function deleteInvoice(id: string) {
 }
 
 export async function authenticate(
-  prevState: string | null,
+  prevState: string | undefined,
   formData: FormData,
 ) {
   try {
@@ -135,13 +135,11 @@ export async function authenticate(
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
-          return 'Invalide Credentials';
+          return 'Invalid credentials.';
         default:
-          return 'Something went wrong';
+          return 'Something went wrong.';
       }
     }
-
-    // Rethrow the error if error is not an AuthError
     throw error;
   }
 }
